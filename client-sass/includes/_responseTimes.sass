@@ -1,0 +1,36 @@
+.responseTimes
+  @extend .light-font
+  color: $dark-gray
+  display: block
+  margin-top: 50px
+  padding: 12px
+  text-align: center
+
+.responseTimes--siteDetails
+  background: rgba(128, 128, 128, 0.14)
+  border-radius: 4px
+  display: inline-block
+  height: 280px
+  margin: 8px
+  padding: 12px
+  vertical-align: top
+  width: 200px
+  +break-for(iphone)
+    display: block
+    margin: 12px auto
+    width: 65%
+
+.responseTimes--siteDetails__siteName
+  display: block
+  font-size: 14px
+  margin-bottom: 12px
+
+.responseTimes--siteDetails__responseTime
+  display: block
+  font-size: 13px
+  margin: 12px 0
+
+.responseTimes--siteDetails__lastUpdate
+  display: block
+  font-size: 10px
+  margin: 4px 0

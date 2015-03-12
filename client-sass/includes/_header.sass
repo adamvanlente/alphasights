@@ -1,0 +1,16 @@
+header
+  @extend .thick-font
+  color: $dark-gray
+  display: block
+  font-size: 24px
+  margin: 0 auto
+  text-align: center
+  width: 50%
+  +break-for(iphone)
+    width: 90%
+
+  label
+    @extend .light-font
+    color: $light-gray
+    display: block
+    font-size: 12px

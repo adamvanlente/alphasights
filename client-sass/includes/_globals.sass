@@ -1,0 +1,53 @@
+// Media Query Breakpoints
+$iphone-portrait: 320px
+$iphone-landscape: 568px
+$ipad-portrait: 569px
+$ipad-landscape: 1024px
+$desktop: 1025px
+$desktop-large: 1824px
+
+// Breakpoint function
+=break-for($device)
+
+  @if $device == standard
+    @media only screen and (min-width: $desktop)
+      @content
+
+  @if $device == standard-large
+    @media only screen and (min-width: $desktop-large)
+      @content
+
+  @if $device == iphone
+    @media only screen and (min-device-width: $iphone-portrait) and (max-device-width: $iphone-landscape)
+      @content
+    @media only screen and (min-width: $iphone-portrait) and (max-width: $iphone-landscape)
+      @content
+
+  @if $device == ipad
+    @media only screen and (min-device-width: $ipad-portrait) and (max-device-width: $ipad-landscape)
+      @content
+    @media only screen and (min-width: $ipad-portrait) and (max-width: $ipad-landscape)
+      @content
+
+// Transition
+=trans($transtype)
+  -webkit-transition: $transtype
+  -moz-transition:    $transtype
+  -o-transition:      $transtype
+  transition:         $transtype
+
+$easybreezy: ease-in-out all 0.2s
+$easyslider: all 1s cubic-bezier(0.7,0.53,0,0.87)
+
+// Fonts
+.light-font
+  font-family: "Roboto", sans-serif
+  font-weight: 300
+
+.thick-font
+  font-family: "PT Serif", serif
+  font-weight: 700
+
+// Colors
+$dark-gray: #333333
+$light-gray: rgb(173, 173, 173)
