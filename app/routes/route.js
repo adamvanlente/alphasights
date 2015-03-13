@@ -17,7 +17,7 @@ module.exports = function(app, passport) {
 	//-------------------------------------
 	app.get('/', function(req, res) {
 
-			// Render something to a jade template.
+			// Render default index page to a jade template.
 			res.render('index.jade');
 	});
 
@@ -36,7 +36,7 @@ module.exports = function(app, passport) {
 				fullUrl = 'http://' + fullUrl;
 			}
 
-			// Set a start time to see how response a site is.
+			// Set a start time to see how responsive a site is.
 			var startTime = (new Date()).getTime();
 
 			// Make a request to the site and then report the response time.

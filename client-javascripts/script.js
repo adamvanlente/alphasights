@@ -65,19 +65,19 @@ var rt = {
       }
 
       // Make a request to the site and get the response time.
-      rt.loadResponseTime(site);
+      rt.getSiteResponseTime(site);
     }
 
   },
 
   /**
-   * Load the response time web page.
+   * Get site response time.
    * @function that iterates over all urls in the siteList, and renders a
    *           response time dom element for each.
    * @param site String domain name of website to ping for a response.
    *
    */
-  loadResponseTime: function(site) {
+  getSiteResponseTime: function(site) {
 
     // Define the request url.
     var requestUrl = rt.responseTimeRequestUrl + site;
@@ -99,21 +99,25 @@ var rt = {
   },
 
   /**
-   * Render an element in the DOM that show how long a site's response time is.
-   * @function that renders an icon on the page showing how long it took to
+   * Render an element in the DOM that shows how long a site's response time is.
+   * @function that renders an element on the page showing how long it took to
    *           receive a response from a site.
    * @param siteDetails Object json data returned from site request.
    *
    */
    renderResponseTimeElement: function(siteDetails) {
 
-     // Create a selector string - domain name minus .'s
+     // Create a selector string.  Eg, takes retroduck.com, turns it into
+     // retroduckcom and uses it as the id for an element.
      var selector = siteDetails.site.replace('.', '');
 
      // See if a dom element for the current site exists.
      var el = $('#' + selector);
 
      // If no element exists, append one and recursively run this function.
+     // TODO the intention of this if statement is to accomodate the addition
+     //      of new sites after the page has loaded. No funcitonality has
+     //      been added to allow this in the UI; but it would be nice to add it.
      if (el.length == 0) {
        $('.responseTimes')
          .append($('<span>')
